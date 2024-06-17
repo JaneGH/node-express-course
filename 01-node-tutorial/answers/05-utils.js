@@ -1,5 +1,5 @@
-const sayHi = (name) => {
-  console.log(`Hello there ${name}`)
+function greet(name) {
+  console.log(`Hello, ${name}!`);
 }
-// export default
-module.exports = sayHi
+
+module.exports = greet;

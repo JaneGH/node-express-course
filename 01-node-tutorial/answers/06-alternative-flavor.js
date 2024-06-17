@@ -1,6 +1,7 @@
-module.exports.items = ['item1', 'item2']
-const person = {
-  name: 'bob',
+module.exports.item1 = 'Item 1';
+module.exports.item2 = 'Item 2';
+const sun = {
+  name: 'Adrian',
 }
 
-module.exports.singlePerson = person
+module.exports.mySun = sun
