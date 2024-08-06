@@ -8,6 +8,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
 
+
 const authRoutes = require('./routes/auth');
 const helloRoutes = require('./routes/hello');
 
