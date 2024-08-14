@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Page</title>
+</head>
+<body>
+  <h1 id="message"></h1>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        window.location.href = 'index.html'; // Redirect to login if no token found
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:3000/api/v1/hello', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+
+        const messageElement = document.getElementById('message');
+        if (response.ok) {
+          messageElement.textContent = data.message;
+        } else {
+          messageElement.textContent = `Error: ${data.message}`;
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('message').textContent = 'An error occurred. Please try again.';
+      }
+    });
+  </script>
+</body>
+</html>
